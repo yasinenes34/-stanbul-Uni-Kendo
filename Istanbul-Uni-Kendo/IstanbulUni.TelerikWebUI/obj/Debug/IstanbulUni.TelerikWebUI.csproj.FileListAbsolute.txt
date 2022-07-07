@@ -57,3 +57,7 @@ C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.T
 C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\obj\Debug\IstanbulUni.TelerikWebUI.csproj.CopyComplete
 C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\obj\Debug\IstanbulUni.TelerikWebUI.dll
 C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\obj\Debug\IstanbulUni.TelerikWebUI.pdb
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\bin\System.Net.Http.Formatting.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\bin\System.Web.Http.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\bin\System.Net.Http.Formatting.xml
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUni.TelerikWebUI\bin\System.Web.Http.xml

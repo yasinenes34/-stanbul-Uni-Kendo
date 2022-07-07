@@ -13,10 +13,12 @@
         </tr>
     </thead>
     <tbody>
+        @using (Html.BeginForm("StudentAdd", "Student", FormMethod.Post)) { 
         <tr>
             <td>İsim</td>
 
             <td>@(Html.Kendo().TextBox().Name("Name"))</td>
+           
         </tr>
         <tr>
             <td>Soy isim</td>
@@ -40,15 +42,9 @@
         </tr>
         <tr>
             <td colspan="2">
-                @(Html.Kendo().Button().Name("btnSubmit").HtmlAttributes(new { type = "button", @class = "ml-auto k-button k-primary", style = "height:35px;width:70px;" }).Content("Save").Events(e => e.Click("btnSubmit_Click")))
+                @(Html.Kendo().Button().Name("btnSubmit").HtmlAttributes(new { type = "submit", @class = "ml-auto k-button k-primary", style = "height:35px;width:70px;" }).Content("Save").Events(e => e.Click("btnSubmit_Click")))
             </td>
         </tr>
-        <input id="numerictextbox"  />
-        
+        }
     </tbody>
 </table>
-<script>
-    $("#numerictextbox").kendoNumericTextBox({
-        decimals: 1
-    });
-</script>

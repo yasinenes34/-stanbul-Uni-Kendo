@@ -2,6 +2,7 @@
 using IstanbulUniKendo.DAL.Context;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,24 +13,34 @@ namespace IstanbulUniKendo.DAL.Repositories
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         IUKendoContext db = new IUKendoContext();
+        DbSet<T> obj;
+        public GenericRepository()
+        {
+            obj = db.Set<T>();
+        }
         public void Delete(T d)
         {
-            throw new NotImplementedException();
+            var deletedEntity = db.Entry(d);
+            deletedEntity.State = EntityState.Deleted;
+           
+            db.SaveChanges();
         }
 
         public T get(Expression<Func<T, bool>> filiter)
         {
-            throw new NotImplementedException();
+            return obj.SingleOrDefault(filiter);
         }
 
         public void Insert(T d)
         {
-            throw new NotImplementedException();
+            var addedEntity = db.Entry(d);
+            addedEntity.State = EntityState.Added;
+            db.SaveChanges();
         }
 
         public List<T> List()
         {
-            throw new NotImplementedException();
+            return obj.ToList();
         }
 
         public List<T> List(Expression<Func<T, bool>> filiter)
@@ -39,7 +50,9 @@ namespace IstanbulUniKendo.DAL.Repositories
 
         public void Update(T d)
         {
-            throw new NotImplementedException();
+            var updatedEntity = db.Entry(d);
+            updatedEntity.State = EntityState.Modified;
+            db.SaveChanges();
         }
     }
 }

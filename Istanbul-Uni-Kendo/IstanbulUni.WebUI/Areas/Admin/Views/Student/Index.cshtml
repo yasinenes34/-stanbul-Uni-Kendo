@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<IstanbulUniKendo.DAL.Model.Student>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -12,182 +12,67 @@
 <script src="~/Scripts/kendo/2021.2.616/jquery.min.js"></script>
 
 <script src="~/Scripts/kendo/2021.2.616/kendo.all.min.js"></script>
+<script src="~/Scripts/kendo/2021.2.616/kendo.aspnetmvc.min.js"></script>
 
-<div id="example">
-    <table id="grid">
-        <colgroup>
-            <col />
-            <col />
-            <col style="width:110px" />
-            <col style="width:120px" />
-            <col style="width:130px" />
-        </colgroup>
-        <thead>
-            <tr>
-                <th data-field="make">Car Make</th>
-                <th data-field="model">Car Model</th>
-                <th data-field="year">Year</th>
-                <th data-field="category">Category</th>
-                <th data-field="airconditioner">Air Conditioner</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Volvo</td>
-                <td>S60</td>
-                <td>2010</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Audi</td>
-                <td>A4</td>
-                <td>2002</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>BMW</td>
-                <td>535d</td>
-                <td>2006</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>BMW</td>
-                <td>320d</td>
-                <td>2006</td>
-                <td>Saloon</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>VW</td>
-                <td>Passat</td>
-                <td>2007</td>
-                <td>Saloon</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>VW</td>
-                <td>Passat</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Peugeot</td>
-                <td>407</td>
-                <td>2006</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Honda</td>
-                <td>Accord</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Alfa Romeo</td>
-                <td>159</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Nissan</td>
-                <td>Almera</td>
-                <td>2001</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Mitsubishi</td>
-                <td>Lancer</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Opel</td>
-                <td>Vectra</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Toyota</td>
-                <td>Avensis</td>
-                <td>2006</td>
-                <td>Saloon</td>
-                <td>No</td>
-            </tr>
-            <tr>
-                <td>Toyota</td>
-                <td>Avensis</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Toyota</td>
-                <td>Avensis</td>
-                <td>2008</td>
-                <td>Saloon</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Audi</td>
-                <td>Q7</td>
-                <td>2007</td>
-                <td>SUV</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Hyundai</td>
-                <td>Santa Fe</td>
-                <td>2012</td>
-                <td>SUV</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Hyundai</td>
-                <td>Santa Fe</td>
-                <td>2013</td>
-                <td>SUV</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Nissan</td>
-                <td>Qashqai</td>
-                <td>2007</td>
-                <td>SUV</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Mercedez</td>
-                <td>B Class</td>
-                <td>2007</td>
-                <td>Hatchback</td>
-                <td>Yes</td>
-            </tr>
-            <tr>
-                <td>Lancia</td>
-                <td>Ypsilon</td>
-                <td>2006</td>
-                <td>Hatchback</td>
-                <td>Yes</td>
-            </tr>
-        </tbody>
-    </table>
-
-    @*<script>
-        $(document).ready(function () {
-            $("#grid").@(Html.Kendo().)({
-                height: 550,
-                sortable: true
+@*@(Html.Kendo().Grid<IstanbulUniKendo.DAL.Model.Student>()
+        .Name("grid")
+        .ToolBar(tools=>
+        {
+            tools.Create();
+        })
+        .Columns(columns =>
+        {
+            columns.Bound(f => f.Name);
+            columns.Bound(f => f.Surname);
+            columns.Bound(f => f.StudentNo);
+            columns.Bound(f => f.UniversityName);
+            columns.Bound(f => f.examScore);
+            columns.Command(command => {
+                command.Edit();
+                command.Destroy();
             });
-        });
-    </script>*@
-</div>
+        })
+        .Editable(editable => editable.Mode(GridEditMode.PopUp))
+        .DataSource(d =>
+        {
+            d.Ajax()
+            .Model(model =>
+            {
+                model.Id(product => product.ID); // Specify the property which is the unique identifier of the model.
+                model.Field(product => product.ID).Editable(false); // Make the OrderID property not editable.
+            })
+            .Create(create => create.Action("StudentAdd", "Student")) // Action invoked when the user saves a new data item.
+            .Read(read => read.Action("StudentList", "Student"))  // Action invoked when the Grid needs data.
+            .Update(update => update.Action("StudentUpdate", "Student"))  // Action invoked when the user saves an updated data item.
+            .Destroy(destroy => destroy.Action("StudentDelete", "Student")); // Action invoked when the user removes a data item.
+        })
+    )*@
+
+
+@(Html.Kendo().Grid(Model)
+    .Name("Grid")
+    .Columns(columns =>
+    {
+        columns.Bound(p => p.Name).Title("Öğrenci İsim").Width(130);
+        columns.Bound(p => p.Surname).Title("Öğrenci Soyisim").Width(130);
+        columns.Bound(p => p.UniversityName).Title("Üniversite İsmi").Width(130);
+        columns.Bound(p => p.StudentNo).Title("Öğrenci Numara").Width(130);
+        columns.Bound(p => p.examScore).Title("Öğrenci Sınav Notu").Width(130);
+        columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
+    })
+    .HtmlAttributes(new { style = "height: 550px;" })
+    .Height(500)
+    .ToolBar(toolbar => toolbar.Create())
+    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Pageable()
+    .Sortable()
+    .Scrollable()
+    .DataSource(dataSource => dataSource
+        .Server()
+        .Model(model => model.Id(p => p.ID))
+        .Read("StudentAdd", "Student")
+        .Update("StudentUpdate", "Student")
+        .Create("StudentAdd", "Student")
+        .Destroy("StudentDelete", "Student")
+     )
+)

@@ -12,6 +12,10 @@ namespace IstanbulUniKendo.BAL.Concrate
     internal class UserManager : IUserService
     {
         IUser _user;
+        public UserManager(IUser user)
+        {
+            _user = user;
+        }
         public List<User> GetListBl()
         {
             return _user.List();

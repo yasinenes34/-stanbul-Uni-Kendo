@@ -14,13 +14,11 @@
     <link rel="stylesheet" href="~/Areas/Theme/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Areas/Theme/dist/css/adminlte.min.css">
-
-    <link href="~/Content/kendo/2021.2.616/kendo.common.min.css" rel="stylesheet" />
-
-    <link href="~/Content/kendo/2021.2.616/kendo.default.min.css" rel="stylesheet" />
+    @Styles.Render("~/Content/kendo/2021.2.616/kendo.common.min.css")
+    @Styles.Render("~/Content/kendo/2021.2.616/kendo.default.min.css")
+   
 
     <script src="~/Scripts/kendo/2021.2.616/jquery.min.js"></script>
-    <script src="~/Scripts/kendo/2021.2.616/kendo.aspnetmvc.min.js"></script>
     <script src="~/Scripts/kendo/2021.2.616/kendo.all.min.js"></script>
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -116,7 +114,7 @@
                     <!-- Main row -->
                     <div class="row">
                         @RenderBody()
-                        
+
                     </div>
                     <!-- /.row -->
                 </div><!--/. container-fluid -->
@@ -155,6 +153,9 @@
     <script src="~/Areas/Theme/plugins/jquery-mapael/maps/usa_states.min.js"></script>
     <!-- ChartJS -->
     <script src="~/Areas/Theme/plugins/chart.js/Chart.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.all.min.js"></script>
+    @Scripts.Render("~/Scripts/kendo/2021.2.616/jquery.min.js")
+    @Scripts.Render("~/Scripts/kendo/2021.2.616/kendo.all.min.js")
 
 
 </body>
