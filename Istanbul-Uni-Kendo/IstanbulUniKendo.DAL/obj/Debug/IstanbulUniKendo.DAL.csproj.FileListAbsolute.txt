@@ -1,0 +1,14 @@
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\IstanbulUniKendo.DAL.dll.config
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\IstanbulUniKendo.DAL.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\IstanbulUniKendo.DAL.pdb
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\EntityFramework.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\EntityFramework.xml
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.csproj.AssemblyReference.cache
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.Migrations.createuserstudent.resources
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.csproj.GenerateResource.cache
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.csproj.CopyComplete
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.DAL\obj\Debug\IstanbulUniKendo.DAL.pdb

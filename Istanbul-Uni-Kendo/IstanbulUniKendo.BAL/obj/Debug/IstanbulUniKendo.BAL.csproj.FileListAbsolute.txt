@@ -1,0 +1,12 @@
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\IstanbulUniKendo.BAL.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\IstanbulUniKendo.BAL.pdb
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\IstanbulUniKendo.DAL.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\EntityFramework.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\IstanbulUniKendo.DAL.pdb
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\IstanbulUniKendo.DAL.dll.config
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\bin\Debug\EntityFramework.xml
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\obj\Debug\IstanbulUniKendo.BAL.csproj.AssemblyReference.cache
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\obj\Debug\IstanbulUniKendo.BAL.csproj.CoreCompileInputs.cache
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\obj\Debug\IstanbulUniKendo.BAL.csproj.CopyComplete
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\obj\Debug\IstanbulUniKendo.BAL.dll
+C:\Users\pc\Documents\GitHub\-stanbul-Uni-Kendo\Istanbul-Uni-Kendo\IstanbulUniKendo.BAL\obj\Debug\IstanbulUniKendo.BAL.pdb

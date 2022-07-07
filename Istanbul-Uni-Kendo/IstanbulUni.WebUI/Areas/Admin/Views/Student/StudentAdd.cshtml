@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "StudentAdd";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-bordered">
+    <thead class="bg-dark text-center text-white">
+        <tr>
+            <th colspan="2">Öğrenci Kayıt Formu</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>İsim</td>
+
+            <td>@(Html.Kendo().TextBox().Name("Name"))</td>
+        </tr>
+        <tr>
+            <td>Soy isim</td>
+
+            <td>@(Html.Kendo().TextBox().Name("Surname"))</td>
+        </tr>
+        <tr>
+            <td>Öğrenci Numarası</td>
+
+            <td>@(Html.Kendo().TextBox().Name("StudentNo").HtmlAttributes(new { type = "number"}))</td>
+        </tr>
+        <tr>
+            <td>Üniversite Adı</td>
+
+            <td>@(Html.Kendo().TextBox().Name("UniversityName"))</td>
+        </tr>
+        <tr>
+            <td>Sınav Notu</td>
+
+            <td>@(Html.Kendo().TextBox().Name("examScore").HtmlAttributes(new { type = "number" , max = "100" }))</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @(Html.Kendo().Button().Name("btnSubmit").HtmlAttributes(new { type = "button", @class = "ml-auto k-button k-primary", style = "height:35px;width:70px;" }).Content("Save").Events(e => e.Click("btnSubmit_Click")))
+            </td>
+        </tr>
+        <input id="numerictextbox"  />
+        
+    </tbody>
+</table>
+<script>
+    $("#numerictextbox").kendoNumericTextBox({
+        decimals: 1
+    });
+</script>

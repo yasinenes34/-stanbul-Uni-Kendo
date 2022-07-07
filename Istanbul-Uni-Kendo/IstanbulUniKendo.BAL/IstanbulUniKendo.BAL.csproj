@@ -41,7 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IStudentService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
+    <Compile Include="Concrate\StudentManager.cs" />
+    <Compile Include="Concrate\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\IstanbulUniKendo.DAL\IstanbulUniKendo.DAL.csproj">
+      <Project>{EB0E8C91-B153-40AF-9F5A-DBACDA83B538}</Project>
+      <Name>IstanbulUniKendo.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
