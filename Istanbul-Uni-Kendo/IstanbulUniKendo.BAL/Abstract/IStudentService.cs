@@ -11,7 +11,7 @@ namespace IstanbulUniKendo.BAL.Abstract
     {
         List<Student> GetListBl();
         void StudentAddBl(Student student);
-        bool StudentRemoveBl(Student student);
+        void StudentRemoveBl(Student student);
         Student GetByID(int id);
         void StudentUpdateBl(Student student);
     }

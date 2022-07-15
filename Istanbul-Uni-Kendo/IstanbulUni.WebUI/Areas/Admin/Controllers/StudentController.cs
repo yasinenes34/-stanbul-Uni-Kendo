@@ -8,58 +8,56 @@ using System.Web;
 using System.Web.Mvc;   
 using Kendo.Mvc.Extensions;
 using Kendo.Mvc.UI;
-
-
+using IstanbulUni.WebUI.Models;
 
 namespace IstanbulUniKendo.WebUI.Areas.Admin.Controllers
 {
     public class StudentController : Controller
     {
         StudentManager sm = new StudentManager(new EfStudentDal());
-       
-        // GET: Admin/Student
+
         public ActionResult Index()
         {
-            var StudnetList = sm.GetListBl();
-            return View(StudnetList);
-        }
-        [HttpPost]
-        public ActionResult StudentAdd(Student student)
-        {
-            sm.StudentAddBl(student);
-            return RedirectToAction("StudentList");
-           
+            return View();
         }
 
-
-        public ActionResult StudentList([DataSourceRequest] DataSourceRequest request)
+        public ActionResult EditingInline_Read([DataSourceRequest] DataSourceRequest request)
         {
-            return Json(sm.GetListBl().ToDataSourceResult(request), JsonRequestBehavior.AllowGet);
+            return Json(sm.GetListBl().ToDataSourceResult(request));
         }
+
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult StudentUpdate([DataSourceRequest] DataSourceRequest request, Student student)
+        public ActionResult EditingInline_Create([DataSourceRequest] DataSourceRequest request, Student student)
         {
-            
+            if (student != null && ModelState.IsValid)
+            {
+                sm.StudentAddBl(student);
+            }
+
+            return Json(new[] { student }.ToDataSourceResult(request, ModelState));
+        }
+
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult EditingInline_Update([DataSourceRequest] DataSourceRequest request, Student student)
+        {
             if (student != null && ModelState.IsValid)
             {
                 sm.StudentUpdateBl(student);
             }
 
-            return Json(new[] { student }.ToDataSourceResult(request, ModelState), JsonRequestBehavior.AllowGet);
+            return Json(new[] { student }.ToDataSourceResult(request, ModelState));
         }
+
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult StudentDelete([DataSourceRequest] DataSourceRequest request, Student student)
+        public ActionResult EditingInline_Destroy([DataSourceRequest] DataSourceRequest request, Student student)
         {
             if (student != null)
             {
-                
                 sm.StudentRemoveBl(student);
             }
 
-            return Json(new[] { student }.ToDataSourceResult(request, ModelState), JsonRequestBehavior.AllowGet);
+            return Json(new[] { student }.ToDataSourceResult(request, ModelState));
         }
-
-
 
     }
 }

@@ -14,65 +14,47 @@
 <script src="~/Scripts/kendo/2021.2.616/kendo.all.min.js"></script>
 <script src="~/Scripts/kendo/2021.2.616/kendo.aspnetmvc.min.js"></script>
 
-@*@(Html.Kendo().Grid<IstanbulUniKendo.DAL.Model.Student>()
-        .Name("grid")
-        .ToolBar(tools=>
-        {
-            tools.Create();
-        })
-        .Columns(columns =>
-        {
-            columns.Bound(f => f.Name);
-            columns.Bound(f => f.Surname);
-            columns.Bound(f => f.StudentNo);
-            columns.Bound(f => f.UniversityName);
-            columns.Bound(f => f.examScore);
-            columns.Command(command => {
-                command.Edit();
-                command.Destroy();
-            });
-        })
-        .Editable(editable => editable.Mode(GridEditMode.PopUp))
-        .DataSource(d =>
-        {
-            d.Ajax()
-            .Model(model =>
-            {
-                model.Id(product => product.ID); // Specify the property which is the unique identifier of the model.
-                model.Field(product => product.ID).Editable(false); // Make the OrderID property not editable.
-            })
-            .Create(create => create.Action("StudentAdd", "Student")) // Action invoked when the user saves a new data item.
-            .Read(read => read.Action("StudentList", "Student"))  // Action invoked when the Grid needs data.
-            .Update(update => update.Action("StudentUpdate", "Student"))  // Action invoked when the user saves an updated data item.
-            .Destroy(destroy => destroy.Action("StudentDelete", "Student")); // Action invoked when the user removes a data item.
-        })
-    )*@
 
-
-@(Html.Kendo().Grid(Model)
-    .Name("Grid")
+@(Html.Kendo().Grid<IstanbulUniKendo.DAL.Model.Student>()
+    .Name("grid")
     .Columns(columns =>
     {
-        columns.Bound(p => p.Name).Title("Öğrenci İsim").Width(130);
-        columns.Bound(p => p.Surname).Title("Öğrenci Soyisim").Width(130);
-        columns.Bound(p => p.UniversityName).Title("Üniversite İsmi").Width(130);
-        columns.Bound(p => p.StudentNo).Title("Öğrenci Numara").Width(130);
-        columns.Bound(p => p.examScore).Title("Öğrenci Sınav Notu").Width(130);
+        columns.Bound(p => p.Name);
+        columns.Bound(p => p.Surname);
+        columns.Bound(p => p.UniversityName);
+        columns.Bound(p => p.StudentNo);
+        columns.Bound(p => p.examScore);
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
     })
-    .HtmlAttributes(new { style = "height: 550px;" })
-    .Height(500)
     .ToolBar(toolbar => toolbar.Create())
-    .Editable(editable => editable.Mode(GridEditMode.PopUp))
+    .Editable(editable => editable.Mode(GridEditMode.InLine).ConfirmDelete("Continue to delete this record?").DisplayDeleteConfirmation("Continue to delete this record?"))
     .Pageable()
     .Sortable()
     .Scrollable()
+    .HtmlAttributes(new { style = "height:550px;" })
     .DataSource(dataSource => dataSource
-        .Server()
+        .Ajax()
+        .PageSize(20)
+        .Events(events => events.Error("error_handler"))
         .Model(model => model.Id(p => p.ID))
-        .Read("StudentAdd", "Student")
-        .Update("StudentUpdate", "Student")
-        .Create("StudentAdd", "Student")
-        .Destroy("StudentDelete", "Student")
-     )
+        .Create(update => update.Action("EditingInline_Create", "Student"))
+        .Read(read => read.Action("EditingInline_Read", "Student"))
+        .Update(update => update.Action("EditingInline_Update", "Student"))
+        .Destroy(update => update.Action("EditingInline_Destroy", "Student"))
+    )
 )
+<script type="text/javascript">
+    function error_handler(e) {
+        if (e.errors) {
+            var message = "Errors:\n";
+            $.each(e.errors, function (key, value) {
+                if ('errors' in value) {
+                    $.each(value.errors, function () {
+                        message += this + "\n";
+                    });
+                }
+            });
+            alert(message);
+        }
+    }
+</script>
