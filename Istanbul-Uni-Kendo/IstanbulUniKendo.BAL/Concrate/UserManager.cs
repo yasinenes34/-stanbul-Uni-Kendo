@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IstanbulUniKendo.BAL.Concrate
 {
-    internal class UserManager : IUserService
+   public  class UserManager : IUserService
     {
         IUser _user;
         public UserManager(IUser user)
@@ -23,17 +23,17 @@ namespace IstanbulUniKendo.BAL.Concrate
 
         public bool UserAddBl(User user)
         {
-            var _userInfo = _user.get(t => t.Email == user.Email && t.Password == user.Password);
+            var _userInfo = _user.get(t => t.UserName == user.UserName || t.Password == user.Password);
             if (_userInfo != null)
             {
-                return false;
+                return true;
             }
-            else { _user.Insert(user); return true; }
+            else { _user.Insert(user); return false; }
         }
 
         public bool UserLogin(User user)
         {
-            var userInfo = _user.get(t => t.Email == user.Email && t.Password == user.Password);
+            var userInfo = _user.get(t => t.UserName == user.UserName && t.Password == user.Password);
             if (userInfo != null)
                 return true;
             else return false;

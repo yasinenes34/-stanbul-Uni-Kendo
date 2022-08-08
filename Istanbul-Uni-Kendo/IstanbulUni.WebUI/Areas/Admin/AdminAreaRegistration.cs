@@ -19,6 +19,7 @@ namespace IstanbulUniKendo.WebUI.Areas.Admin
                 "Admin/{controller}/{action}/{id}",
                 new { action = "Index", id = UrlParameter.Optional }
             );
+           
         }
     }
 }

@@ -27,7 +27,7 @@
         columns.Command(command => { command.Edit(); command.Destroy(); }).Width(250);
     })
     .ToolBar(toolbar => toolbar.Create())
-    .Editable(editable => editable.Mode(GridEditMode.InLine).ConfirmDelete("Continue to delete this record?").DisplayDeleteConfirmation("Continue to delete this record?"))
+    .Editable(editable => editable.Mode(GridEditMode.InLine).ConfirmDelete("Bu Kayıtı Silmek İstediğinizden Emin misiniz?").DisplayDeleteConfirmation("Bu Kayıtı Silmek İstediğinizden Emin misiniz?"))
     .Pageable()
     .Sortable()
     .Scrollable()

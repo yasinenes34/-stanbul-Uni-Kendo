@@ -1,0 +1,122 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <link href="~/Content/kendo/2021.2.616/kendo.common.min.css" rel="stylesheet" />
+
+    <link href="~/Content/kendo/2021.2.616/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2021.2.616/kendo.default.mobile.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2021.2.616/kendo.bootstrap-v4.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2021.2.616/kendo.bootstrap-v4.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Areas/Theme/dist/css/adminlte.min.css">
+
+    <script src="~/Scripts/kendo/2021.2.616/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.web.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.all.min.js"></script>
+</head>
+<body class="hold-transition login-page">
+
+    <div class=" card">
+        <div class="login-box">
+            <div class="card-body login-card-body">
+                <div class="card-img-top">
+                    <div class="k-notification-content k-notification-container" id="validation-summary">
+                    </div>
+
+                    <div class="card-body">
+
+
+                        @*@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+                        {*@
+                        <form id="ticketsForm" class="k-form k-form-vertical">
+                            <ul class="k-form-group">
+
+                                <li class="k-form-field input-group mb-auto">
+                                    <label for="email" class="k-form-label km-full-width-slider">Email</label>
+                                    <span class="k-form-field-wrap">
+                                        @(Html.Kendo()
+                .TextBox()
+                .Name("Email")
+                .HtmlAttributes(new { placeholder = "myname@example.net", required = "required", type = "email", data_email_msg = "Email format is not valid", @id = "email" })
+                            )
+                                    </span>
+                                </li>
+                                <li class="k-form-field input-group mb-lg-auto">
+                                    <label for="tel" class="k-form-label">Şifre</label>
+                                    <span class="k-form-field-wrap">
+                                        @(Html.Kendo()
+                .TextBox()
+                .Name("Password")
+
+                .HtmlAttributes(new { required = "required", type = "password", validationmessage = "Şifrenizi kontrol ediniz", @id = "password" })
+                            )
+                                    </span>
+                                </li>
+                                <li class="k-form-buttons">
+                                    <button class="k-button k-button-primary k-button-expand k-button-md k-rounded-md" id="login">Giriş Yap</button>
+                                </li>
+                            </ul>
+                        </form>
+                        @*}*@
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var validator = $("#ticketsForm").kendoValidator().data("kendoValidator");
+            var validationSummary = $("#validation-summary");
+
+            $("#login").click(function () {
+
+                var data = new Object();
+                data.UserName = $('#email').val();
+                data.Password = $('#password').val();
+                debugger
+                $.ajax({
+                    type: "POST",
+                    url: 'Index',
+                    data: JSON.stringify(data),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (data) {
+
+                        if (data) {
+                            validationSummary.html("<div class='k-messagebox k-messagebox-success'>Giriş İşlemi Başarı Bir Şekilde Gerçekleşti</div>");
+                            window.location.href = "/Admin/Student/Index";
+                        }
+                        else {
+
+                            validationSummary.html("<div class='k-messagebox k-messagebox-error'>Giriş İşlemi Başarısız Lütfen Bilgilerinizi Kontrol Ediniz</div>");
+                        }
+                    },
+                    error: function Error() {
+
+                        validationSummary.html("<div class='k-messagebox k-messagebox-error'>Giriş İşlemi Başarısız Lütfen Bilgilerinizi Kontrol Ediniz</div>");
+                    }
+
+                });
+            });
+
+        });
+
+
+
+    </script>
+
+
+
+</body>
+</html>
+
+
+
+
+

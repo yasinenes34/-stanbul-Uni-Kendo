@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Registration Page</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+
+    <link href="~/Areas/Theme/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- icheck bootstrap -->
+
+    <link href="~/Areas/Theme/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+
+    <link href="~/Content/kendo/2021.2.616/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2021.2.616/kendo.default.mobile.min.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2021.2.616/kendo.bootstrap-v4.css" rel="stylesheet" />
+    <link href="~/Content/kendo/2021.2.616/kendo.bootstrap-v4.min.css" rel="stylesheet" />
+    <link href="~/Areas/Theme/dist/css/adminlte.min.css" rel="stylesheet" />
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <link href="~/Content/toastr.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/kendo/2021.2.616/jquery.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.web.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.aspnetmvc.min.js"></script>
+    <script src="~/Scripts/kendo/2021.2.616/kendo.all.min.js"></script>
+</head>
+<body class="hold-transition register-page">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href=""><b>Register</b></a>
+        </div>
+
+        <div class="card">
+            <div class="card-body register-card-body">
+                <p class="login-box-msg">Register a new membership</p>
+                <div class="k-notification-content k-notification-container" id="validation-summary">
+                </div>
+                <form id="ticketsForm" class="k-form k-form-vertical">
+
+                    <div class="input-group mb-3">
+                        @(Html.Kendo()
+                .TextBox()
+                .Label(l => l.Content("Mail Adresiniz").Floating(true))
+                .Name("Email")
+                .HtmlAttributes(new {  required = "required", type = "email", data_email_msg = "Email format is not valid", @id = "email" })
+                            )
+
+                    </div>
+                    <div class="input-group mb-3">
+                        @(Html.Kendo()
+                .TextBox()
+                .Name("Password")
+                .Label(l => l.Content("Şifreniz").Floating(true))
+                .HtmlAttributes(new { required = "required", type = "password", validationmessage = "Şifrenizi kontrol ediniz", @id = "password" })
+                            )
+                    </div>
+                    <div class="input-group mb-3">
+                        @(Html.Kendo()
+                .TextBox()
+                .Name("Password")
+                .Label(l => l.Content("Şifreniz Tekrar Giriniz").Floating(true))
+                .HtmlAttributes(new { required = "required", type = "password", validationmessage = "Şifrenizi kontrol ediniz", @id = "repassword" })
+                            )
+                    </div>
+                    <div class="row">
+
+
+                        <div class="col-12">
+                            <a class="k-button k-button-primary k-button-expand k-button-md k-rounded-md" id="register">Kayıt Ol</a>
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                </form>
+
+                <hr />
+
+                <a href="login.html" class="text-center">I already have a membership</a>
+            </div>
+            <!-- /.form-box -->
+        </div><!-- /.card -->
+    </div>
+    <!-- /.register-box -->
+    <!-- jQuery -->
+    <!-- Bootstrap 4 -->
+
+    <script src="~/Areas/Theme/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+
+    <script src="~/Areas/Theme/dist/js/adminlte.min.js"></script>
+    <script src="~/Scripts/toastr.min.js"></script>
+    <script src="~/Scripts/toastr.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var validator = $("#ticketsForm").kendoValidator().data("kendoValidator");
+            var validationSummary = $("#validation-summary");
+
+            $("#register").click(function () {
+
+                var data = new Object();
+
+                var email = $('#email').val();
+
+                var password = $('#password').val();
+                var repassword = $('#repassword').val();
+
+                if (password == repassword || email != "") {
+                    data.Email = $('#email').val();
+                    data.Password = $('#password').val();
+                    debugger
+                    $.ajax({
+                        type: "POST",
+                        url: '/Register/Index',
+                        data: JSON.stringify(data),
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        success: function (data) {
+
+                            if (data) {
+                                validationSummary.html("<div class='k-messagebox k-messagebox-success'>Giriş İşlemi Başarı Bir Şekilde Gerçekleşti</div>");
+                                window.location.href = "/Admin/Login/Index";
+                            }
+                            else {
+                                validationSummary.html("<div class='k-messagebox k-messagebox-error'>Giriş İşlemi Başarısız Lütfen Bilgilerinizi Kontrol Ediniz</div>");
+                            }
+                        },
+                        error: function Error() {
+
+                            validationSummary.html("<div class='k-messagebox k-messagebox-error'>Giriş İşlemi Başarısız Lütfen Bilgilerinizi Kontrol Ediniz</div>");
+                        }
+
+                    });
+
+                }
+                else {
+                    validationSummary.html("<div class='k-messagebox k-messagebox-error'>Giriş İşlemi Başarısız Lütfen Bilgilerinizi Kontrol Ediniz</div>");
+                }
+            });
+
+        });
+
+
+    </script>
+</body>
+</html>

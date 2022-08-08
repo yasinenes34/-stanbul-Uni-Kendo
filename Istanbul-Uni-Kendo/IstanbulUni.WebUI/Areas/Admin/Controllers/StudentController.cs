@@ -15,17 +15,17 @@ namespace IstanbulUniKendo.WebUI.Areas.Admin.Controllers
     public class StudentController : Controller
     {
         StudentManager sm = new StudentManager(new EfStudentDal());
-
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
-
+       
         public ActionResult EditingInline_Read([DataSourceRequest] DataSourceRequest request)
         {
             return Json(sm.GetListBl().ToDataSourceResult(request));
         }
-
+        
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditingInline_Create([DataSourceRequest] DataSourceRequest request, Student student)
         {
@@ -36,7 +36,7 @@ namespace IstanbulUniKendo.WebUI.Areas.Admin.Controllers
 
             return Json(new[] { student }.ToDataSourceResult(request, ModelState));
         }
-
+       
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditingInline_Update([DataSourceRequest] DataSourceRequest request, Student student)
         {
@@ -48,6 +48,7 @@ namespace IstanbulUniKendo.WebUI.Areas.Admin.Controllers
             return Json(new[] { student }.ToDataSourceResult(request, ModelState));
         }
 
+        
         [AcceptVerbs(HttpVerbs.Post)]
         public ActionResult EditingInline_Destroy([DataSourceRequest] DataSourceRequest request, Student student)
         {
